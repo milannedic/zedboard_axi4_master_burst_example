@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb.wdb" id="1">
+         <top_modules>
+            <top_module name="axi4_master_burst_v1_0_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="152083333fs"></ZoomStartTime>
+      <ZoomEndTime time="275583334fs"></ZoomEndTime>
+      <Cursor1Time time="255000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="81" />
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/reset_n">
+      <obj_property name="ElementShortName">reset_n</obj_property>
+      <obj_property name="ObjectShortName">reset_n</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/data">
+      <obj_property name="ElementShortName">data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/txn_done">
+      <obj_property name="ElementShortName">txn_done</obj_property>
+      <obj_property name="ObjectShortName">txn_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/txn_error">
+      <obj_property name="ElementShortName">txn_error</obj_property>
+      <obj_property name="ObjectShortName">txn_error</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/i">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_awaddr">
+      <obj_property name="ElementShortName">s00_axi_awaddr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awaddr[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_awprot">
+      <obj_property name="ElementShortName">s00_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_awvalid">
+      <obj_property name="ElementShortName">s00_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_awready">
+      <obj_property name="ElementShortName">s00_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_wdata">
+      <obj_property name="ElementShortName">s00_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_wstrb">
+      <obj_property name="ElementShortName">s00_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_wvalid">
+      <obj_property name="ElementShortName">s00_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_wready">
+      <obj_property name="ElementShortName">s00_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_bresp">
+      <obj_property name="ElementShortName">s00_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_bvalid">
+      <obj_property name="ElementShortName">s00_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_bready">
+      <obj_property name="ElementShortName">s00_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_bready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_araddr">
+      <obj_property name="ElementShortName">s00_axi_araddr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_araddr[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_arprot">
+      <obj_property name="ElementShortName">s00_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_arvalid">
+      <obj_property name="ElementShortName">s00_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_arready">
+      <obj_property name="ElementShortName">s00_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_rdata">
+      <obj_property name="ElementShortName">s00_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_rresp">
+      <obj_property name="ElementShortName">s00_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_rvalid">
+      <obj_property name="ElementShortName">s00_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/s00_axi_rready">
+      <obj_property name="ElementShortName">s00_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">s00_axi_rready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awid">
+      <obj_property name="ElementShortName">m00_axi_awid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awid[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awaddr">
+      <obj_property name="ElementShortName">m00_axi_awaddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awaddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awlen">
+      <obj_property name="ElementShortName">m00_axi_awlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awsize">
+      <obj_property name="ElementShortName">m00_axi_awsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awburst">
+      <obj_property name="ElementShortName">m00_axi_awburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awlock">
+      <obj_property name="ElementShortName">m00_axi_awlock</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awlock</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awcache">
+      <obj_property name="ElementShortName">m00_axi_awcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awprot">
+      <obj_property name="ElementShortName">m00_axi_awprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awqos">
+      <obj_property name="ElementShortName">m00_axi_awqos[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awqos[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awuser">
+      <obj_property name="ElementShortName">m00_axi_awuser[-1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awuser[-1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awvalid">
+      <obj_property name="ElementShortName">m00_axi_awvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_awready">
+      <obj_property name="ElementShortName">m00_axi_awready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_wdata">
+      <obj_property name="ElementShortName">m00_axi_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_wstrb">
+      <obj_property name="ElementShortName">m00_axi_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_wlast">
+      <obj_property name="ElementShortName">m00_axi_wlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_wvalid">
+      <obj_property name="ElementShortName">m00_axi_wvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_wready">
+      <obj_property name="ElementShortName">m00_axi_wready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/DUT/axi4_master_burst_v1_0_M00_AXI_inst/init_txn_pulse">
+      <obj_property name="ElementShortName">init_txn_pulse</obj_property>
+      <obj_property name="ObjectShortName">init_txn_pulse</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/DUT/axi4_master_burst_v1_0_M00_AXI_inst/wnext">
+      <obj_property name="ElementShortName">wnext</obj_property>
+      <obj_property name="ObjectShortName">wnext</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/DUT/axi4_master_burst_v1_0_M00_AXI_inst/INIT_AXI_TXN">
+      <obj_property name="ElementShortName">INIT_AXI_TXN</obj_property>
+      <obj_property name="ObjectShortName">INIT_AXI_TXN</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/DUT/axi4_master_burst_v1_0_M00_AXI_inst/TXN_DONE">
+      <obj_property name="ElementShortName">TXN_DONE</obj_property>
+      <obj_property name="ObjectShortName">TXN_DONE</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/DUT/axi4_master_burst_v1_0_M00_AXI_inst/ERROR">
+      <obj_property name="ElementShortName">ERROR</obj_property>
+      <obj_property name="ObjectShortName">ERROR</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_bresp">
+      <obj_property name="ElementShortName">m00_axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_bvalid">
+      <obj_property name="ElementShortName">m00_axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_bready">
+      <obj_property name="ElementShortName">m00_axi_bready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_bready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arvalid">
+      <obj_property name="ElementShortName">m00_axi_arvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arvalid</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arready">
+      <obj_property name="ElementShortName">m00_axi_arready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rlast">
+      <obj_property name="ElementShortName">m00_axi_rlast</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rlast</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rready">
+      <obj_property name="ElementShortName">m00_axi_rready</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rvalid">
+      <obj_property name="ElementShortName">m00_axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rdata">
+      <obj_property name="ElementShortName">m00_axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arid">
+      <obj_property name="ElementShortName">m00_axi_arid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arid[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_araddr">
+      <obj_property name="ElementShortName">m00_axi_araddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_araddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arlen">
+      <obj_property name="ElementShortName">m00_axi_arlen[7:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arlen[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arsize">
+      <obj_property name="ElementShortName">m00_axi_arsize[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arsize[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arburst">
+      <obj_property name="ElementShortName">m00_axi_arburst[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arburst[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arlock">
+      <obj_property name="ElementShortName">m00_axi_arlock</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arlock</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arcache">
+      <obj_property name="ElementShortName">m00_axi_arcache[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arcache[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arprot">
+      <obj_property name="ElementShortName">m00_axi_arprot[2:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arprot[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_arqos">
+      <obj_property name="ElementShortName">m00_axi_arqos[3:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_arqos[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_aruser">
+      <obj_property name="ElementShortName">m00_axi_aruser[-1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_aruser[-1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rid">
+      <obj_property name="ElementShortName">m00_axi_rid[0:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rid[0:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_rresp">
+      <obj_property name="ElementShortName">m00_axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/m00_axi_ruser">
+      <obj_property name="ElementShortName">m00_axi_ruser[-1:0]</obj_property>
+      <obj_property name="ObjectShortName">m00_axi_ruser[-1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_S00_AXI_DATA_WIDTH">
+      <obj_property name="ElementShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S00_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_S00_AXI_ADDR_WIDTH">
+      <obj_property name="ElementShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S00_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_TARGET_SLAVE_BASE_ADDR">
+      <obj_property name="ElementShortName">C_M00_AXI_TARGET_SLAVE_BASE_ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_TARGET_SLAVE_BASE_ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_BURST_LEN">
+      <obj_property name="ElementShortName">C_M00_AXI_BURST_LEN[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_BURST_LEN[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_ID_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_ID_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_ID_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_ADDR_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_DATA_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_AWUSER_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_AWUSER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_AWUSER_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_ARUSER_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_ARUSER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_ARUSER_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_WUSER_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_WUSER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_WUSER_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_RUSER_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_RUSER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_RUSER_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi4_master_burst_v1_0_tb/C_M00_AXI_BUSER_WIDTH">
+      <obj_property name="ElementShortName">C_M00_AXI_BUSER_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_M00_AXI_BUSER_WIDTH[31:0]</obj_property>
+   </wvobject>
+</wave_config>

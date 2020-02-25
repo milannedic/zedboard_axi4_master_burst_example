@@ -11,122 +11,122 @@ module axi4_master_burst_v1_0_tb ();
 
 		// Parameters of Axi Master Bus Interface M00_AXI
 		parameter  C_M00_AXI_TARGET_SLAVE_BASE_ADDR	= 32'h10000000;
-		parameter integer C_M00_AXI_BURST_LEN	= 16;
-		parameter integer C_M00_AXI_ID_WIDTH	= 1;
-		parameter integer C_M00_AXI_ADDR_WIDTH	= 32;
-		parameter integer C_M00_AXI_DATA_WIDTH	= 32;
-		parameter integer C_M00_AXI_AWUSER_WIDTH    = 0;
-		parameter integer C_M00_AXI_ARUSER_WIDTH	= 0;
-		parameter integer C_M00_AXI_WUSER_WIDTH	= 0;
-		parameter integer C_M00_AXI_RUSER_WIDTH	= 0;
-		parameter integer C_M00_AXI_BUSER_WIDTH	= 0;
+	 parameter integer                    C_M00_AXI_BURST_LEN = 16;
+	 parameter integer                    C_M00_AXI_ID_WIDTH = 1;
+	 parameter integer                    C_M00_AXI_ADDR_WIDTH = 32;
+	 parameter integer                    C_M00_AXI_DATA_WIDTH = 32;
+	 parameter integer                    C_M00_AXI_AWUSER_WIDTH = 0;
+	 parameter integer                    C_M00_AXI_ARUSER_WIDTH = 0;
+	 parameter integer                    C_M00_AXI_WUSER_WIDTH = 0;
+	 parameter integer                    C_M00_AXI_RUSER_WIDTH = 0;
+	 parameter integer                    C_M00_AXI_BUSER_WIDTH = 0;
 
-        // fake memory
-        bit [C_S00_AXI_DATA_WIDTH-1:0] mem[integer];
+   // fake memory
+   bit [C_S00_AXI_DATA_WIDTH-1:0]       mem[integer];
 
-        reg clk;
-        reg reset_n;
+   reg                                  clk;
+   reg                                  reset_n;
 
-        bit [C_S00_AXI_DATA_WIDTH-1:0] data;
-        bit txn_done;
-        bit txn_error;
+   bit [C_S00_AXI_DATA_WIDTH-1:0]       data;
+   bit                                  txn_done;
+   bit                                  txn_error;
 
-        integer i;
+   integer                              i;
 
 		// Ports of Axi Slave Bus Interface S00_AXI
-		reg [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_awaddr;
-		reg [2 : 0] s00_axi_awprot;
-		reg s00_axi_awvalid;
-		wire s00_axi_awready;
-		reg [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_wdata;
-		reg [(C_S00_AXI_DATA_WIDTH/8)-1 : 0] s00_axi_wstrb;
-		reg s00_axi_wvalid;
-		wire s00_axi_wready;
-		wire [1 : 0] s00_axi_bresp;
-		wire s00_axi_bvalid;
-		reg s00_axi_bready;
-		reg [C_S00_AXI_ADDR_WIDTH-1 : 0] s00_axi_araddr;
-		reg [2 : 0] s00_axi_arprot;
-		reg s00_axi_arvalid;
-		wire s00_axi_arready;
-		wire [C_S00_AXI_DATA_WIDTH-1 : 0] s00_axi_rdata;
-		wire [1 : 0] s00_axi_rresp;
-		wire s00_axi_rvalid;
-		reg s00_axi_rready;
+	 reg [C_S00_AXI_ADDR_WIDTH-1 : 0]     s00_axi_awaddr;
+	 reg [2 : 0]                          s00_axi_awprot;
+	 reg                                  s00_axi_awvalid;
+	 wire                                 s00_axi_awready;
+	 reg [C_S00_AXI_DATA_WIDTH-1 : 0]     s00_axi_wdata;
+	 reg [(C_S00_AXI_DATA_WIDTH/8)-1 : 0] s00_axi_wstrb;
+	 reg                                  s00_axi_wvalid;
+	 wire                                 s00_axi_wready;
+	 wire [1 : 0]                         s00_axi_bresp;
+	 wire                                 s00_axi_bvalid;
+	 reg                                  s00_axi_bready;
+	 reg [C_S00_AXI_ADDR_WIDTH-1 : 0]     s00_axi_araddr;
+	 reg [2 : 0]                          s00_axi_arprot;
+	 reg                                  s00_axi_arvalid;
+	 wire                                 s00_axi_arready;
+	 wire [C_S00_AXI_DATA_WIDTH-1 : 0]    s00_axi_rdata;
+	 wire [1 : 0]                         s00_axi_rresp;
+	 wire                                 s00_axi_rvalid;
+	 reg                                  s00_axi_rready;
 
 		// Ports of Axi Master Bus Interface M00_AXI
-		wire [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_awid;
-		wire [C_M00_AXI_ADDR_WIDTH-1 : 0] m00_axi_awaddr;
-		wire [7 : 0] m00_axi_awlen;
-		wire [2 : 0] m00_axi_awsize;
-		wire [1 : 0] m00_axi_awburst;
-		wire m00_axi_awlock;
-		wire [3 : 0] m00_axi_awcache;
-		wire [2 : 0] m00_axi_awprot;
-		wire [3 : 0] m00_axi_awqos;
-		wire [C_M00_AXI_AWUSER_WIDTH-1 : 0] m00_axi_awuser;
-		wire m00_axi_awvalid;
-		reg m00_axi_awready;
-		wire [C_M00_AXI_DATA_WIDTH-1 : 0] m00_axi_wdata;
-		wire [C_M00_AXI_DATA_WIDTH/8-1 : 0] m00_axi_wstrb;
-		wire m00_axi_wlast;
-		wire [C_M00_AXI_WUSER_WIDTH-1 : 0] m00_axi_wuser;
-		wire m00_axi_wvalid;
-		reg m00_axi_wready;
-		reg [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_bid;
-		reg [1 : 0] m00_axi_bresp;
-		reg [C_M00_AXI_BUSER_WIDTH-1 : 0] m00_axi_buser;
-		reg m00_axi_bvalid;
-		wire m00_axi_bready;
-		wire [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_arid;
-		wire [C_M00_AXI_ADDR_WIDTH-1 : 0] m00_axi_araddr;
-		wire [7 : 0] m00_axi_arlen;
-		wire [2 : 0] m00_axi_arsize;
-		wire [1 : 0] m00_axi_arburst;
-		wire  m00_axi_arlock;
-		wire [3 : 0] m00_axi_arcache;
-		wire [2 : 0] m00_axi_arprot;
-		wire [3 : 0] m00_axi_arqos;
-		wire [C_M00_AXI_ARUSER_WIDTH-1 : 0] m00_axi_aruser;
-		wire m00_axi_arvalid;
-		reg m00_axi_arready;
-		reg [C_M00_AXI_ID_WIDTH-1 : 0] m00_axi_rid;
-		reg [C_M00_AXI_DATA_WIDTH-1 : 0] m00_axi_rdata;
-		reg [1 : 0] m00_axi_rresp;
-		reg m00_axi_rlast;
-		reg [C_M00_AXI_RUSER_WIDTH-1 : 0] m00_axi_ruser;
-		reg m00_axi_rvalid;
-		wire m00_axi_rready;
+	 wire [C_M00_AXI_ID_WIDTH-1 : 0]      m00_axi_awid;
+	 wire [C_M00_AXI_ADDR_WIDTH-1 : 0]    m00_axi_awaddr;
+	 wire [7 : 0]                         m00_axi_awlen;
+	 wire [2 : 0]                         m00_axi_awsize;
+	 wire [1 : 0]                         m00_axi_awburst;
+	 wire                                 m00_axi_awlock;
+	 wire [3 : 0]                         m00_axi_awcache;
+	 wire [2 : 0]                         m00_axi_awprot;
+	 wire [3 : 0]                         m00_axi_awqos;
+	 wire [C_M00_AXI_AWUSER_WIDTH-1 : 0]  m00_axi_awuser;
+	 wire                                 m00_axi_awvalid;
+	 reg                                  m00_axi_awready;
+	 wire [C_M00_AXI_DATA_WIDTH-1 : 0]    m00_axi_wdata;
+	 wire [C_M00_AXI_DATA_WIDTH/8-1 : 0]  m00_axi_wstrb;
+	 wire                                 m00_axi_wlast;
+	 wire [C_M00_AXI_WUSER_WIDTH-1 : 0]   m00_axi_wuser;
+	 wire                                 m00_axi_wvalid;
+	 reg                                  m00_axi_wready;
+	 reg [C_M00_AXI_ID_WIDTH-1 : 0]       m00_axi_bid;
+	 reg [1 : 0]                          m00_axi_bresp;
+	 reg [C_M00_AXI_BUSER_WIDTH-1 : 0]    m00_axi_buser;
+	 reg                                  m00_axi_bvalid;
+	 wire                                 m00_axi_bready;
+	 wire [C_M00_AXI_ID_WIDTH-1 : 0]      m00_axi_arid;
+	 wire [C_M00_AXI_ADDR_WIDTH-1 : 0]    m00_axi_araddr;
+	 wire [7 : 0]                         m00_axi_arlen;
+	 wire [2 : 0]                         m00_axi_arsize;
+	 wire [1 : 0]                         m00_axi_arburst;
+	 wire                                 m00_axi_arlock;
+	 wire [3 : 0]                         m00_axi_arcache;
+	 wire [2 : 0]                         m00_axi_arprot;
+	 wire [3 : 0]                         m00_axi_arqos;
+	 wire [C_M00_AXI_ARUSER_WIDTH-1 : 0]  m00_axi_aruser;
+	 wire                                 m00_axi_arvalid;
+	 reg                                  m00_axi_arready;
+	 reg [C_M00_AXI_ID_WIDTH-1 : 0]       m00_axi_rid;
+	 reg [C_M00_AXI_DATA_WIDTH-1 : 0]     m00_axi_rdata;
+	 reg [1 : 0]                          m00_axi_rresp;
+	 reg                                  m00_axi_rlast;
+	 reg [C_M00_AXI_RUSER_WIDTH-1 : 0]    m00_axi_ruser;
+	 reg                                  m00_axi_rvalid;
+	 wire                                 m00_axi_rready;
 
         task setAllRegsTo0();
-            clk <= 1'b0;
-            reset_n <= 1'b0;
+           clk             <= 1'b0;
+           reset_n         <= 1'b0;
 
-            s00_axi_awaddr <= {C_S00_AXI_ADDR_WIDTH{1'b0}};
-		    s00_axi_awprot <= 3'b000;
-            s00_axi_wdata <= {C_S00_AXI_DATA_WIDTH{1'b0}};
-		    s00_axi_wstrb <= {(C_S00_AXI_DATA_WIDTH/8){1'b0}};
-		    s00_axi_awvalid <= 1'b0;
-		    s00_axi_wvalid <= 1'b0;
-            s00_axi_bready <= 1'b0;
-            s00_axi_araddr <= {C_S00_AXI_ADDR_WIDTH{1'b0}};
-            s00_axi_arprot <= 3'b000;
-            s00_axi_arvalid <= 1'b0;
-            s00_axi_rready <= 1'b0;
+           s00_axi_awaddr  <= {C_S00_AXI_ADDR_WIDTH{1'b0}};
+           s00_axi_awprot  <= 3'b000;
+           s00_axi_wdata   <= {C_S00_AXI_DATA_WIDTH{1'b0}};
+           s00_axi_wstrb   <= {(C_S00_AXI_DATA_WIDTH/8){1'b0}};
+           s00_axi_awvalid <= 1'b0;
+           s00_axi_wvalid  <= 1'b0;
+           s00_axi_bready  <= 1'b0;
+           s00_axi_araddr  <= {C_S00_AXI_ADDR_WIDTH{1'b0}};
+           s00_axi_arprot  <= 3'b000;
+           s00_axi_arvalid <= 1'b0;
+           s00_axi_rready  <= 1'b0;
 
-            m00_axi_awready <= 1'b0;
-            m00_axi_wready <= 1'b0;
-            m00_axi_bid <= {C_M00_AXI_ID_WIDTH{1'b0}};
-            m00_axi_bresp <= 2'b0;
-            //m00_axi_buser <= {C_M00_AXI_BUSER_WIDTH{1'b0}}; 
-            m00_axi_bvalid <= 1'b0;
-            m00_axi_arready <= 1'b0;
-            m00_axi_rid <= {C_M00_AXI_ID_WIDTH{1'b0}};
-            m00_axi_rdata <= {C_M00_AXI_DATA_WIDTH{1'b0}};
-            m00_axi_rresp <= 2'b00;
-            m00_axi_rlast <= 1'b0;
+           m00_axi_awready <= 1'b0;
+           m00_axi_wready  <= 1'b0;
+           m00_axi_bid     <= {C_M00_AXI_ID_WIDTH{1'b0}};
+           m00_axi_bresp   <= 2'b0;
+            //m00_axi_buser <= {C_M00_AXI_BUSER_WIDTH{1'b0}};
+           m00_axi_bvalid  <= 1'b0;
+           m00_axi_arready <= 1'b0;
+           m00_axi_rid     <= {C_M00_AXI_ID_WIDTH{1'b0}};
+           m00_axi_rdata   <= {C_M00_AXI_DATA_WIDTH{1'b0}};
+           m00_axi_rresp   <= 2'b00;
+           m00_axi_rlast   <= 1'b0;
             //m00_axi_ruser <= {C_M00_AXI_RUSER_WIDTH{1'b0}};
-            m00_axi_rvalid <= 1'b0;
+           m00_axi_rvalid  <= 1'b0;
         endtask
 
         task handleAXI4BurstWriteTransaction();
@@ -138,7 +138,8 @@ module axi4_master_burst_v1_0_tb ();
             write_address = m00_axi_awaddr;
             burst_write_length = m00_axi_awlen;
 
-            $display(" * burst write transaction to address 0x%h, length %d", write_address, burst_write_length + 1);
+            $display(" * burst write transaction to address 0x%h, length %d",
+                     write_address, burst_write_length + 1);
 
             // tell master that provided address (over m00_axi_awaddr) was
             // recognized
@@ -146,7 +147,7 @@ module axi4_master_burst_v1_0_tb ();
 
             // wait until the first valid data word arrives
             while(m00_axi_wvalid == 1'b0) begin
-                `TICK 
+                `TICK
                 reset_n = reset_n;
             end
 
@@ -220,7 +221,7 @@ module axi4_master_burst_v1_0_tb ();
 
                     // wait until master is ready to receive data
                     while(m00_axi_rready == 1'b0) begin
-                        `TICK 
+                        `TICK
                         reset_n = reset_n;
                     end
                     `TICK
@@ -245,7 +246,7 @@ module axi4_master_burst_v1_0_tb ();
 
             // wait until slave recognizes the provided address and data
             while(s00_axi_awready == 1'b0 && s00_axi_wready == 1'b0) begin
-                `TICK 
+                `TICK
                 reset_n = reset_n;
             end
 
@@ -258,7 +259,7 @@ module axi4_master_burst_v1_0_tb ();
 
             // wait until slave has processed provided data
             while(s00_axi_wready == 1'b1) begin
-                `TICK 
+                `TICK
                 reset_n = reset_n;
             end
 
@@ -268,7 +269,7 @@ module axi4_master_burst_v1_0_tb ();
 
             // wait until slave sends its response
             while(s00_axi_bvalid == 1'b0) begin
-                `TICK 
+                `TICK
                 reset_n = reset_n;
             end
 
@@ -314,11 +315,11 @@ module axi4_master_burst_v1_0_tb ();
             end
         endtask
 
-        
+
         initial begin
             $display("START tb");
 
-            
+
             setAllRegsTo0();
 
             `TICK
@@ -328,19 +329,19 @@ module axi4_master_burst_v1_0_tb ();
 
             `TICK
             // start burst transactions
-            doAXI4LiteWriteTransaction(4'b0000, 1);    
+            doAXI4LiteWriteTransaction(4'b0000, 1);
 
             txn_done = 1'b0;
             txn_error = 1'b0;
 
             // poll slave until burst transactions are done
             while(txn_done == 1'b0) begin
-                doAXI4LiteReadTransaction(4'b0100, data);    
+                doAXI4LiteReadTransaction(4'b0100, data);
                 txn_done = data[0:0];
             end
-              
+
             // check if there was an error during the burst
-            doAXI4LiteReadTransaction(4'b1000, data);    
+            doAXI4LiteReadTransaction(4'b1000, data);
             txn_error = data[0:0];
 
             printMemory();
@@ -350,7 +351,7 @@ module axi4_master_burst_v1_0_tb ();
 
         always @(posedge clk) begin
             if(m00_axi_awvalid == 1'b1) begin
-                handleAXI4BurstWriteTransaction(); 
+                handleAXI4BurstWriteTransaction();
             end
             else if(m00_axi_arvalid == 1'b1) begin
                 handleAXI4BurstReadTransaction();
