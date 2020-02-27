@@ -73,3 +73,5 @@ module axi_datamover_wrap
  output logic                s_axis_s2mm_tready,
  output logic                s2mm_err
 );
+
+endmodule

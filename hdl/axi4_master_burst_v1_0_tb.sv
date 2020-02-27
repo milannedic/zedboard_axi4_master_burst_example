@@ -447,4 +447,181 @@ module axi4_master_burst_v1_0_tb ();
 		.m00_axi_rready(m00_axi_rready)
 	);
 
+
+	// Add user logic here
+// Inputs
+logic m_axi_mm2s_aclk;
+logic m_axi_mm2s_aresetn;
+logic mm2s_halt;
+logic m_axis_mm2s_cmdsts_aclk;
+logic m_axis_mm2s_cmdsts_aresetn;
+logic s_axis_mm2s_cmd_tvalid;
+logic [71:0] s_axis_mm2s_cmd_tdata;
+logic m_axis_mm2s_sts_tready;
+logic mm2s_allow_addr_req;
+logic m_axi_mm2s_arready;
+logic [31:0] m_axi_mm2s_rdata;
+logic [1:0] m_axi_mm2s_rresp;
+logic m_axi_mm2s_rlast;
+logic m_axi_mm2s_rvalid;
+logic m_axis_mm2s_tready;
+logic [3:0] mm2s_dbg_sel;
+logic m_axi_s2mm_aclk;
+logic m_axi_s2mm_aresetn;
+logic s2mm_halt;
+logic m_axis_s2mm_cmdsts_awclk;
+logic m_axis_s2mm_cmdsts_aresetn;
+logic s_axis_s2mm_cmd_tvalid;
+logic [71:0] s_axis_s2mm_cmd_tdata;
+logic m_axis_s2mm_sts_tready;
+logic s2mm_allow_addr_req;
+logic m_axi_s2mm_awready;
+logic m_axi_s2mm_wready;
+logic [1:0] m_axi_s2mm_bresp;
+logic m_axi_s2mm_bvalid;
+logic [31:0] s_axis_s2mm_tdata;
+logic [3:0] s_axis_s2mm_tkeep;
+logic s_axis_s2mm_tlast;
+logic s_axis_s2mm_tvalid;
+logic [3:0] s2mm_dbg_sel;
+
+ // Outputs
+logic mm2s_halt_cmplt;
+logic mm2s_err;
+logic s_axis_mm2s_cmd_tready;
+logic m_axis_mm2s_sts_tvalid;
+logic [7:0] m_axis_mm2s_sts_tdata;
+logic [0:0] m_axis_mm2s_sts_tkeep;
+logic m_axis_mm2s_sts_tlast;
+logic mm2s_addr_req_posted;
+logic mm2s_rd_xfer_cmplt;
+logic [3:0] m_axi_mm2s_arid;
+logic [31:0] m_axi_mm2s_araddr;
+logic [7:0] m_axi_mm2s_arlen;
+logic [2:0] m_axi_mm2s_arsize;
+logic [1:0] m_axi_mm2s_arburst;
+logic [2:0] m_axi_mm2s_arprot;
+logic [3:0] m_axi_mm2s_arcache;
+logic m_axi_mm2s_arvalid;
+logic m_axi_mm2s_rready;
+logic [31:0] m_axis_mm2s_tdata;
+logic [3:0] m_axis_mm2s_tkeep;
+logic m_axis_mm2s_tlast;
+logic m_axis_mm2s_tvalid;
+logic [31:0] mm2s_dbg_data;
+logic s2mm_halt_cmplt;
+logic s2mm_err;
+logic s_axis_s2mm_cmd_tready;
+logic m_axis_s2mm_sts_tvalid;
+logic [7:0] m_axis_s2mm_sts_tdata;
+logic [0:0] m_axis_s2mm_sts_tkeep;
+logic m_axis_s2mm_sts_tlast;
+logic s2mm_addr_req_posted;
+logic s2mm_wr_xfer_cmplt;
+logic s2mm_ld_nxt_len;
+logic [7:0] s2mm_wr_len;
+logic [3:0] m_axi_s2mm_awid;
+logic [31:0] m_axi_s2mm_awaddr;
+logic [7:0] m_axi_s2mm_awlen;
+logic [2:0] m_axi_s2mm_awsize;
+logic [1:0] m_axi_s2mm_awburst;
+logic [2:0] m_axi_s2mm_awprot;
+logic [3:0] m_axi_s2mm_awcache;
+logic m_axi_s2mm_awvalid;
+logic [31:0] m_axi_s2mm_wdata;
+logic [3:0] m_axi_s2mm_wstrb;
+logic m_axi_s2mm_wlast;
+logic m_axi_s2mm_wvalid;
+logic m_axi_s2mm_bready;
+logic s_axis_s2mm_tready;
+logic [31:0] s2mm_dbg_data;
+
+ // Instantiate the Unit Under Test (UUT)
+ axi_datamover_wrap uut_dm (
+  .m_axi_mm2s_aclk(m_axi_mm2s_aclk),
+  .m_axi_mm2s_aresetn(m_axi_mm2s_aresetn),
+  // .mm2s_halt(mm2s_halt),
+  // .mm2s_halt_cmplt(mm2s_halt_cmplt),
+  .mm2s_err(mm2s_err),
+  .m_axis_mm2s_cmdsts_aclk(m_axis_mm2s_cmdsts_aclk),
+  .m_axis_mm2s_cmdsts_aresetn(m_axis_mm2s_cmdsts_aresetn),
+  .s_axis_mm2s_cmd_tvalid(s_axis_mm2s_cmd_tvalid),
+  .s_axis_mm2s_cmd_tready(s_axis_mm2s_cmd_tready),
+  .s_axis_mm2s_cmd_tdata(s_axis_mm2s_cmd_tdata),
+  .m_axis_mm2s_sts_tvalid(m_axis_mm2s_sts_tvalid),
+  .m_axis_mm2s_sts_tready(m_axis_mm2s_sts_tready),
+  .m_axis_mm2s_sts_tdata(m_axis_mm2s_sts_tdata),
+  .m_axis_mm2s_sts_tkeep(m_axis_mm2s_sts_tkeep),
+  .m_axis_mm2s_sts_tlast(m_axis_mm2s_sts_tlast),
+  // .mm2s_allow_addr_req(mm2s_allow_addr_req),
+  // .mm2s_addr_req_posted(mm2s_addr_req_posted),
+  // .mm2s_rd_xfer_cmplt(mm2s_rd_xfer_cmplt),
+  .m_axi_mm2s_arid(m_axi_mm2s_arid),
+  .m_axi_mm2s_araddr(m_axi_mm2s_araddr),
+  .m_axi_mm2s_arlen(m_axi_mm2s_arlen),
+  .m_axi_mm2s_arsize(m_axi_mm2s_arsize),
+  .m_axi_mm2s_arburst(m_axi_mm2s_arburst),
+  .m_axi_mm2s_arprot(m_axi_mm2s_arprot),
+  .m_axi_mm2s_arcache(m_axi_mm2s_arcache),
+  .m_axi_mm2s_arvalid(m_axi_mm2s_arvalid),
+  .m_axi_mm2s_arready(m_axi_mm2s_arready),
+  .m_axi_mm2s_rdata(m_axi_mm2s_rdata),
+  .m_axi_mm2s_rresp(m_axi_mm2s_rresp),
+  .m_axi_mm2s_rlast(m_axi_mm2s_rlast),
+  .m_axi_mm2s_rvalid(m_axi_mm2s_rvalid),
+  .m_axi_mm2s_rready(m_axi_mm2s_rready),
+  .m_axis_mm2s_tdata(m_axis_mm2s_tdata),
+  .m_axis_mm2s_tkeep(m_axis_mm2s_tkeep),
+  .m_axis_mm2s_tlast(m_axis_mm2s_tlast),
+  .m_axis_mm2s_tvalid(m_axis_mm2s_tvalid),
+  .m_axis_mm2s_tready(m_axis_mm2s_tready),
+  // .mm2s_dbg_sel(mm2s_dbg_sel),
+  // .mm2s_dbg_data(mm2s_dbg_data),
+  .m_axi_s2mm_aclk(m_axi_s2mm_aclk),
+  .m_axi_s2mm_aresetn(m_axi_s2mm_aresetn),
+  // .s2mm_halt(s2mm_halt),
+  // .s2mm_halt_cmplt(s2mm_halt_cmplt),
+  .s2mm_err(s2mm_err),
+  .m_axis_s2mm_cmdsts_awclk(m_axis_s2mm_cmdsts_awclk),
+  .m_axis_s2mm_cmdsts_aresetn(m_axis_s2mm_cmdsts_aresetn),
+  .s_axis_s2mm_cmd_tvalid(s_axis_s2mm_cmd_tvalid),
+  .s_axis_s2mm_cmd_tready(s_axis_s2mm_cmd_tready),
+  .s_axis_s2mm_cmd_tdata(s_axis_s2mm_cmd_tdata),
+  .m_axis_s2mm_sts_tvalid(m_axis_s2mm_sts_tvalid),
+  .m_axis_s2mm_sts_tready(m_axis_s2mm_sts_tready),
+  .m_axis_s2mm_sts_tdata(m_axis_s2mm_sts_tdata),
+  .m_axis_s2mm_sts_tkeep(m_axis_s2mm_sts_tkeep),
+  .m_axis_s2mm_sts_tlast(m_axis_s2mm_sts_tlast),
+  // .s2mm_allow_addr_req(s2mm_allow_addr_req),
+  // .s2mm_addr_req_posted(s2mm_addr_req_posted),
+  // .s2mm_wr_xfer_cmplt(s2mm_wr_xfer_cmplt),
+  // .s2mm_ld_nxt_len(s2mm_ld_nxt_len),
+  // .s2mm_wr_len(s2mm_wr_len),
+  .m_axi_s2mm_awid(m_axi_s2mm_awid),
+  .m_axi_s2mm_awaddr(m_axi_s2mm_awaddr),
+  .m_axi_s2mm_awlen(m_axi_s2mm_awlen),
+  .m_axi_s2mm_awsize(m_axi_s2mm_awsize),
+  .m_axi_s2mm_awburst(m_axi_s2mm_awburst),
+  .m_axi_s2mm_awprot(m_axi_s2mm_awprot),
+  .m_axi_s2mm_awcache(m_axi_s2mm_awcache),
+  .m_axi_s2mm_awvalid(m_axi_s2mm_awvalid),
+  .m_axi_s2mm_awready(m_axi_s2mm_awready),
+  .m_axi_s2mm_wdata(m_axi_s2mm_wdata),
+  .m_axi_s2mm_wstrb(m_axi_s2mm_wstrb),
+  .m_axi_s2mm_wlast(m_axi_s2mm_wlast),
+  .m_axi_s2mm_wvalid(m_axi_s2mm_wvalid),
+  .m_axi_s2mm_wready(m_axi_s2mm_wready),
+  .m_axi_s2mm_bresp(m_axi_s2mm_bresp),
+  .m_axi_s2mm_bvalid(m_axi_s2mm_bvalid),
+  .m_axi_s2mm_bready(m_axi_s2mm_bready),
+  .s_axis_s2mm_tdata(s_axis_s2mm_tdata),
+  .s_axis_s2mm_tkeep(s_axis_s2mm_tkeep),
+  .s_axis_s2mm_tlast(s_axis_s2mm_tlast),
+  .s_axis_s2mm_tvalid(s_axis_s2mm_tvalid),
+  .s_axis_s2mm_tready(s_axis_s2mm_tready)
+  // .s2mm_dbg_sel(s2mm_dbg_sel),
+  // .s2mm_dbg_data(s2mm_dbg_data)
+ );
+
+
 endmodule
