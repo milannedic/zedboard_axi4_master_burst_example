@@ -142,7 +142,7 @@ entity axi_datamover_wrap is
 
 end entity;
 
-architecture impl of axi_datamover_0_exdes is
+architecture impl of axi_datamover_wrap is
   attribute DowngradeIPIdentifiedWarnings: string;
   attribute DowngradeIPIdentifiedWarnings of impl : architecture is "yes";
 
