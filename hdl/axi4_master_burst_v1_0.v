@@ -106,120 +106,65 @@
 		output wire                                 m00_axi_rready
 	);
 
-	wire m00_axi_init_axi_txn;
+   /*AUTOOUTPUT*/
+   /*AUTOOUTPUT*/
+   /*AUTOTIEOFF*/
+   /*AUTOLOGIC*/
+
+    wire m00_axi_init_axi_txn;
     wire m00_axi_txn_done;
     wire m00_axi_error;
 
-// Instantiation of Axi Bus Interface S00_AXI
-	axi4_master_burst_v1_0_S00_AXI # (
-		.C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
-		.C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH)
-	) axi4_master_burst_v1_0_S00_AXI_inst (
-		.S_AXI_ACLK(s00_axi_aclk),
-		.S_AXI_ARESETN(s00_axi_aresetn),
+   // Instantiation of Axi Bus Interface S00_AXI
 
-		// User-added ports
-		.init_txn(m00_axi_init_axi_txn),
-        .txn_done(m00_axi_txn_done),
-        .txn_error(m00_axi_error),
+   /* axi4_master_burst_v1_0_S00_AXI AUTO_TEMPLATE (
+    .S_AXI_\(.*\) (s00_axi_@"(downcase (substring vl-name 6))"),
+		.init_txn((m00_axi_init_axi_txn)),
+    .txn_error ((m00_axi_txn_error)),
+    .\(.*\) (m00_axi_@"(downcase vl-name)"[]),
 
-		.S_AXI_AWADDR(s00_axi_awaddr),
-		.S_AXI_AWPROT(s00_axi_awprot),
-		.S_AXI_AWVALID(s00_axi_awvalid),
-		.S_AXI_AWREADY(s00_axi_awready),
-		.S_AXI_WDATA(s00_axi_wdata),
-		.S_AXI_WSTRB(s00_axi_wstrb),
-		.S_AXI_WVALID(s00_axi_wvalid),
-		.S_AXI_WREADY(s00_axi_wready),
-		.S_AXI_BRESP(s00_axi_bresp),
-		.S_AXI_BVALID(s00_axi_bvalid),
-		.S_AXI_BREADY(s00_axi_bready),
-		.S_AXI_ARADDR(s00_axi_araddr),
-		.S_AXI_ARPROT(s00_axi_arprot),
-		.S_AXI_ARVALID(s00_axi_arvalid),
-		.S_AXI_ARREADY(s00_axi_arready),
-		.S_AXI_RDATA(s00_axi_rdata),
-		.S_AXI_RRESP(s00_axi_rresp),
-		.S_AXI_RVALID(s00_axi_rvalid),
-		.S_AXI_RREADY(s00_axi_rready)
-	);
+    )*/
+	 axi4_master_burst_v1_0_S00_AXI
+   # (
+      // Parameters
+		  .C_S_AXI_DATA_WIDTH(C_S00_AXI_DATA_WIDTH),
+		  .C_S_AXI_ADDR_WIDTH(C_S00_AXI_ADDR_WIDTH))
+   I_axi4_master_burst_v1_0_S00_AXI
+     (/*AUTOINST*/
+      // Outputs
+      .init_txn                         ((m00_axi_init_axi_txn)), // Templated
+      .S_AXI_AWREADY                    (s00_axi_awready),       // Templated
+      .S_AXI_WREADY                     (s00_axi_wready),        // Templated
+      .S_AXI_BRESP                      (s00_axi_bresp),         // Templated
+      .S_AXI_BVALID                     (s00_axi_bvalid),        // Templated
+      .S_AXI_ARREADY                    (s00_axi_arready),       // Templated
+      .S_AXI_RDATA                      (s00_axi_rdata),         // Templated
+      .S_AXI_RRESP                      (s00_axi_rresp),         // Templated
+      .S_AXI_RVALID                     (s00_axi_rvalid),        // Templated
+      // Inputs
+      .txn_done                         (m00_axi_txn_done),      // Templated
+      .txn_error                        ((m00_axi_txn_error)),   // Templated
+      .S_AXI_ACLK                       (s00_axi_aclk),          // Templated
+      .S_AXI_ARESETN                    (s00_axi_aresetn),       // Templated
+      .S_AXI_AWADDR                     (s00_axi_awaddr),        // Templated
+      .S_AXI_AWPROT                     (s00_axi_awprot),        // Templated
+      .S_AXI_AWVALID                    (s00_axi_awvalid),       // Templated
+      .S_AXI_WDATA                      (s00_axi_wdata),         // Templated
+      .S_AXI_WSTRB                      (s00_axi_wstrb),         // Templated
+      .S_AXI_WVALID                     (s00_axi_wvalid),        // Templated
+      .S_AXI_BREADY                     (s00_axi_bready),        // Templated
+      .S_AXI_ARADDR                     (s00_axi_araddr),        // Templated
+      .S_AXI_ARPROT                     (s00_axi_arprot),        // Templated
+      .S_AXI_ARVALID                    (s00_axi_arvalid),       // Templated
+      .S_AXI_RREADY                     (s00_axi_rready));        // Templated
 
-// Instantiation of Axi Bus Interface M00_AXI
-	axi4_master_burst_v1_0_M00_AXI # (
-		.C_M_TARGET_SLAVE_BASE_ADDR(C_M00_AXI_TARGET_SLAVE_BASE_ADDR),
-		.C_M_AXI_BURST_LEN(C_M00_AXI_BURST_LEN),
-		.C_M_AXI_ID_WIDTH(C_M00_AXI_ID_WIDTH),
-		.C_M_AXI_ADDR_WIDTH(C_M00_AXI_ADDR_WIDTH),
-		.C_M_AXI_DATA_WIDTH(C_M00_AXI_DATA_WIDTH),
-		.C_M_AXI_AWUSER_WIDTH(C_M00_AXI_AWUSER_WIDTH),
-		.C_M_AXI_ARUSER_WIDTH(C_M00_AXI_ARUSER_WIDTH),
-		.C_M_AXI_WUSER_WIDTH(C_M00_AXI_WUSER_WIDTH),
-		.C_M_AXI_RUSER_WIDTH(C_M00_AXI_RUSER_WIDTH),
-		.C_M_AXI_BUSER_WIDTH(C_M00_AXI_BUSER_WIDTH)
-	) axi4_master_burst_v1_0_M00_AXI_inst (
-		.INIT_AXI_TXN(m00_axi_init_axi_txn),
-		.TXN_DONE(m00_axi_txn_done),
-		.ERROR(m00_axi_error),
-		.M_AXI_ACLK(m00_axi_aclk),
-		.M_AXI_ARESETN(m00_axi_aresetn),
-		.M_AXI_AWID(m00_axi_awid),
-		.M_AXI_AWADDR(m00_axi_awaddr),
-		.M_AXI_AWLEN(m00_axi_awlen),
-		.M_AXI_AWSIZE(m00_axi_awsize),
-		.M_AXI_AWBURST(m00_axi_awburst),
-		.M_AXI_AWLOCK(m00_axi_awlock),
-		.M_AXI_AWCACHE(m00_axi_awcache),
-		.M_AXI_AWPROT(m00_axi_awprot),
-		.M_AXI_AWQOS(m00_axi_awqos),
-		.M_AXI_AWUSER(m00_axi_awuser),
-		.M_AXI_AWVALID(m00_axi_awvalid),
-		.M_AXI_AWREADY(m00_axi_awready),
-		.M_AXI_WDATA(m00_axi_wdata),
-		.M_AXI_WSTRB(m00_axi_wstrb),
-		.M_AXI_WLAST(m00_axi_wlast),
-		.M_AXI_WUSER(m00_axi_wuser),
-		.M_AXI_WVALID(m00_axi_wvalid),
-		.M_AXI_WREADY(m00_axi_wready),
-		.M_AXI_BID(m00_axi_bid),
-		.M_AXI_BRESP(m00_axi_bresp),
-		.M_AXI_BUSER(m00_axi_buser),
-		.M_AXI_BVALID(m00_axi_bvalid),
-		.M_AXI_BREADY(m00_axi_bready),
-		.M_AXI_ARID(m00_axi_arid),
-		.M_AXI_ARADDR(m00_axi_araddr),
-		.M_AXI_ARLEN(m00_axi_arlen),
-		.M_AXI_ARSIZE(m00_axi_arsize),
-		.M_AXI_ARBURST(m00_axi_arburst),
-		.M_AXI_ARLOCK(m00_axi_arlock),
-		.M_AXI_ARCACHE(m00_axi_arcache),
-		.M_AXI_ARPROT(m00_axi_arprot),
-		.M_AXI_ARQOS(m00_axi_arqos),
-		.M_AXI_ARUSER(m00_axi_aruser),
-		.M_AXI_ARVALID(m00_axi_arvalid),
-		.M_AXI_ARREADY(m00_axi_arready),
-		.M_AXI_RID(m00_axi_rid),
-		.M_AXI_RDATA(m00_axi_rdata),
-		.M_AXI_RRESP(m00_axi_rresp),
-		.M_AXI_RLAST(m00_axi_rlast),
-		.M_AXI_RUSER(m00_axi_ruser),
-		.M_AXI_RVALID(m00_axi_rvalid),
-		.M_AXI_RREADY(m00_axi_rready)
-	);
+
+   // Instantiation of Axi Bus Interface M00_AXI
 
    /* axi4_master_burst_v1_0_M00_AXI AUTO_TEMPLATE (
-		.C_M_TARGET_SLAVE_BASE_ADDR(C_M00_AXI_TARGET_SLAVE_BASE_ADDR),
-		.C_M_AXI_BURST_LEN(C_M00_AXI_BURST_LEN),
-		.C_M_AXI_ID_WIDTH(C_M00_AXI_ID_WIDTH),
-		.C_M_AXI_ADDR_WIDTH(C_M00_AXI_ADDR_WIDTH),
-		.C_M_AXI_DATA_WIDTH(C_M00_AXI_DATA_WIDTH),
-		.C_M_AXI_AWUSER_WIDTH(C_M00_AXI_AWUSER_WIDTH),
-		.C_M_AXI_ARUSER_WIDTH(C_M00_AXI_ARUSER_WIDTH),
-		.C_M_AXI_WUSER_WIDTH(C_M00_AXI_WUSER_WIDTH),
-		.C_M_AXI_RUSER_WIDTH(C_M00_AXI_RUSER_WIDTH),
-		.C_M_AXI_BUSER_WIDTH(C_M00_AXI_BUSER_WIDTH),
 
-    .M_AXI_\(.*\) (m00_axi_@"(downcase (substring vl-name 6))"[]),
-    .\(.*\) (m00_axi_@"(downcase vl-name)"[]),
+    .M_AXI_\(.*\) (m00_axi_@"(downcase (substring vl-name 6))"),
+    .\(.*\) ((m00_axi_@"(downcase vl-name)"[])),
 
     // .ERROR (m00_axi_error),
     // .TXN_DONE (m00_axi_txn_done),
@@ -244,53 +189,53 @@
    I_axi4_master_burst_v1_0_M00_AXI
      (/*AUTOINST*/
       // Outputs
-      .TXN_DONE                         (m00_axi_txn_done),      // Templated
-      .ERROR                            (m00_axi_error),         // Templated
-      .M_AXI_AWID                       (m00_axi_awid[C_M_AXI_ID_WIDTH-1:0]), // Templated
-      .M_AXI_AWADDR                     (m00_axi_awaddr[C_M_AXI_ADDR_WIDTH-1:0]), // Templated
-      .M_AXI_AWLEN                      (m00_axi_awlen[7:0]),    // Templated
-      .M_AXI_AWSIZE                     (m00_axi_awsize[2:0]),   // Templated
-      .M_AXI_AWBURST                    (m00_axi_awburst[1:0]),  // Templated
+      .TXN_DONE                         ((m00_axi_txn_done)),    // Templated
+      .ERROR                            ((m00_axi_error)),       // Templated
+      .M_AXI_AWID                       (m00_axi_awid),          // Templated
+      .M_AXI_AWADDR                     (m00_axi_awaddr),        // Templated
+      .M_AXI_AWLEN                      (m00_axi_awlen),         // Templated
+      .M_AXI_AWSIZE                     (m00_axi_awsize),        // Templated
+      .M_AXI_AWBURST                    (m00_axi_awburst),       // Templated
       .M_AXI_AWLOCK                     (m00_axi_awlock),        // Templated
-      .M_AXI_AWCACHE                    (m00_axi_awcache[3:0]),  // Templated
-      .M_AXI_AWPROT                     (m00_axi_awprot[2:0]),   // Templated
-      .M_AXI_AWQOS                      (m00_axi_awqos[3:0]),    // Templated
-      .M_AXI_AWUSER                     (m00_axi_awuser[C_M_AXI_AWUSER_WIDTH-1:0]), // Templated
+      .M_AXI_AWCACHE                    (m00_axi_awcache),       // Templated
+      .M_AXI_AWPROT                     (m00_axi_awprot),        // Templated
+      .M_AXI_AWQOS                      (m00_axi_awqos),         // Templated
+      .M_AXI_AWUSER                     (m00_axi_awuser),        // Templated
       .M_AXI_AWVALID                    (m00_axi_awvalid),       // Templated
-      .M_AXI_WDATA                      (m00_axi_wdata[C_M_AXI_DATA_WIDTH-1:0]), // Templated
-      .M_AXI_WSTRB                      (m00_axi_wstrb[C_M_AXI_DATA_WIDTH/8-1:0]), // Templated
+      .M_AXI_WDATA                      (m00_axi_wdata),         // Templated
+      .M_AXI_WSTRB                      (m00_axi_wstrb),         // Templated
       .M_AXI_WLAST                      (m00_axi_wlast),         // Templated
-      .M_AXI_WUSER                      (m00_axi_wuser[C_M_AXI_WUSER_WIDTH-1:0]), // Templated
+      .M_AXI_WUSER                      (m00_axi_wuser),         // Templated
       .M_AXI_WVALID                     (m00_axi_wvalid),        // Templated
       .M_AXI_BREADY                     (m00_axi_bready),        // Templated
-      .M_AXI_ARID                       (m00_axi_arid[C_M_AXI_ID_WIDTH-1:0]), // Templated
-      .M_AXI_ARADDR                     (m00_axi_araddr[C_M_AXI_ADDR_WIDTH-1:0]), // Templated
-      .M_AXI_ARLEN                      (m00_axi_arlen[7:0]),    // Templated
-      .M_AXI_ARSIZE                     (m00_axi_arsize[2:0]),   // Templated
-      .M_AXI_ARBURST                    (m00_axi_arburst[1:0]),  // Templated
+      .M_AXI_ARID                       (m00_axi_arid),          // Templated
+      .M_AXI_ARADDR                     (m00_axi_araddr),        // Templated
+      .M_AXI_ARLEN                      (m00_axi_arlen),         // Templated
+      .M_AXI_ARSIZE                     (m00_axi_arsize),        // Templated
+      .M_AXI_ARBURST                    (m00_axi_arburst),       // Templated
       .M_AXI_ARLOCK                     (m00_axi_arlock),        // Templated
-      .M_AXI_ARCACHE                    (m00_axi_arcache[3:0]),  // Templated
-      .M_AXI_ARPROT                     (m00_axi_arprot[2:0]),   // Templated
-      .M_AXI_ARQOS                      (m00_axi_arqos[3:0]),    // Templated
-      .M_AXI_ARUSER                     (m00_axi_aruser[C_M_AXI_ARUSER_WIDTH-1:0]), // Templated
+      .M_AXI_ARCACHE                    (m00_axi_arcache),       // Templated
+      .M_AXI_ARPROT                     (m00_axi_arprot),        // Templated
+      .M_AXI_ARQOS                      (m00_axi_arqos),         // Templated
+      .M_AXI_ARUSER                     (m00_axi_aruser),        // Templated
       .M_AXI_ARVALID                    (m00_axi_arvalid),       // Templated
       .M_AXI_RREADY                     (m00_axi_rready),        // Templated
       // Inputs
-      .INIT_AXI_TXN                     (m00_axi_init_axi_txn),  // Templated
+      .INIT_AXI_TXN                     ((m00_axi_init_axi_txn)), // Templated
       .M_AXI_ACLK                       (m00_axi_aclk),          // Templated
       .M_AXI_ARESETN                    (m00_axi_aresetn),       // Templated
       .M_AXI_AWREADY                    (m00_axi_awready),       // Templated
       .M_AXI_WREADY                     (m00_axi_wready),        // Templated
-      .M_AXI_BID                        (m00_axi_bid[C_M_AXI_ID_WIDTH-1:0]), // Templated
-      .M_AXI_BRESP                      (m00_axi_bresp[1:0]),    // Templated
-      .M_AXI_BUSER                      (m00_axi_buser[C_M_AXI_BUSER_WIDTH-1:0]), // Templated
+      .M_AXI_BID                        (m00_axi_bid),           // Templated
+      .M_AXI_BRESP                      (m00_axi_bresp),         // Templated
+      .M_AXI_BUSER                      (m00_axi_buser),         // Templated
       .M_AXI_BVALID                     (m00_axi_bvalid),        // Templated
       .M_AXI_ARREADY                    (m00_axi_arready),       // Templated
-      .M_AXI_RID                        (m00_axi_rid[C_M_AXI_ID_WIDTH-1:0]), // Templated
-      .M_AXI_RDATA                      (m00_axi_rdata[C_M_AXI_DATA_WIDTH-1:0]), // Templated
-      .M_AXI_RRESP                      (m00_axi_rresp[1:0]),    // Templated
+      .M_AXI_RID                        (m00_axi_rid),           // Templated
+      .M_AXI_RDATA                      (m00_axi_rdata),         // Templated
+      .M_AXI_RRESP                      (m00_axi_rresp),         // Templated
       .M_AXI_RLAST                      (m00_axi_rlast),         // Templated
-      .M_AXI_RUSER                      (m00_axi_ruser[C_M_AXI_RUSER_WIDTH-1:0]), // Templated
+      .M_AXI_RUSER                      (m00_axi_ruser),         // Templated
       .M_AXI_RVALID                     (m00_axi_rvalid));        // Templated
 
 	// Add user logic here
